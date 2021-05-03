@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container  body-content">
+<br/><br/><br/><br/>
+<h1>Add venue</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">venue Name</label>
+        <input class="form-control" th:field="${venue.name}" />
+        <span th:errors="${venue.name}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="location">venue Location</label>
+        <input class="form-control" th:field="${venue.location}" />
+        <span th:errors="${venue.location}" class="error"></span>
+    </div>
+
+    <input type="submit" value="Add venue" />
+</form>
+
+</body>
+</html>

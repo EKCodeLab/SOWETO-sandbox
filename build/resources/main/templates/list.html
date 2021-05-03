@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<br/><br/><br/><br/>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h2 class = "centered">View concerts By Category</h2>
+</div>
+
+<table class="centeredTable">
+    <tr>
+        <th>All</th>
+        <th>venue</th>
+        <th>artist</th>
+    </tr>
+
+    <tr>
+        <td>
+            <li>
+                <a th:href="@{/list/concerts(column='All',value='View All')}">View All</a>
+            </li>
+        </td>
+        <td>
+            <li th:each="venue : ${venues}">
+                <a th:href="@{/list/concerts(column=venue,value=${venue.name})}" th:text="${venue.name}"></a>
+            </li>
+        </td>
+        <td>
+            <li th:each="artist : ${artists}">
+                <a th:href="@{/list/concerts(column=artist,value=${artist.name})}" th:text="${artist.name}"></a>
+            </li>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

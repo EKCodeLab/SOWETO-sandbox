@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+<br/><br/><br/><br/>
+<div></div>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h2>concerts</h2>
+    <ul>
+        <li th:each="concert : ${concerts}">
+            <a th:href="@{'/view/' + ${concert.id}}" th:text="${concert.name}"></a>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container  body-content">
+<br/><br/><br/><br/>
+<h1 th:text="${'concert: ' + concert.name}">Default Title</h1>
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<div class="concert-listing">
+    <p th:text="${'ID: ' + concert.id}"></p>
+    <p th:text="${'Name: ' + concert.name}"></p>
+    <p>
+        venue: <a th:href="@{'/venues/view/' + ${concert.venue.id}}" th:text="${concert.venue.name}"></a>
+    </p>
+    <p> artists:
+        <ul>
+            <li th:each="artist : ${concert.artists}">
+                <a th:href="@{'/artists/view/' + ${artist.id}}" th:text="${artist.name}"></a>
+            </li>
+        </ul>
+    </p>
+</div>
+
+
+</body>
+</html>
